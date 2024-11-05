@@ -1,0 +1,17 @@
+1.01.01 - 10101 | 2024, november 03 | New mod, 86 road paints, slopes, bus stops, 12 bridge nodes, 2 pillar nodes
+1.01.02 - 10102 | 2024, november 03 | Repaired bug in bridges.lua
+1.01.03 - 10103 | 2024, november 03 | Repaired bug in slopes.lua
+1.01.04 - 10104 | 2024, november 03 | Repaired some mistakes in slopes.lua and roads.lua
+1.01.05 - 10105 | 2024, november 03 | Added slope bridges
+Mod published
+1.02.01 - 10201 | 2024, november 03 | Added 36 bridge nodes & 4 pillar nodes, 6 road nodes, 12 slope nodes
+(bridge update), repairing bus stop visual mistake,
+changed file LICENSE to CC-BY legaltext (thanks to Dragonop)
+1.02.02 - 10202 | 2024, november 03 | repaired bus_stops.lua in row 13 (added hash)
+1.02.03 - 10203 | 2024, november 03 | repairing pillars textures & high bridge
+
+1.03.01 - 10301 | 2024, november 04 | added more bridges & bridge nodes, too multilevel
+1.03.02 - 10302 | 2024, november 04 | bugfix bridge nodes (nodebox)
+1.03.03 - 10303 | 2024, november 04 | bugfix corners of double bridges
+1.03.04 - 10304 | 2024, november 05 | added prefix to textures names (thanks to Dragonop)
+Published as "Bridge update"
