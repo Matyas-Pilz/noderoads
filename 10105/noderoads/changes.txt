@@ -1,6 +1,0 @@
-1.01.01 - 10101 | 2024, november 03 | New mod, 86 road paints, slopes, bus stops, 12 bridge nodes
-1.01.02 - 10102 | 2024, november 03 | Repaired bug in bridges.lua
-1.01.03 - 10103 | 2024, november 03 | Repaired bug in slopes.lua
-1.01.04 - 10104 | 2024, november 03 | Repaired some mistakes in slopes.lua and roads.lua
-1.01.05 - 10105 | 2024, november 03 | Added slope bridges
-Mod published
