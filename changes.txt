@@ -18,4 +18,5 @@ Published as "Bridge update"
 
 1.04.01 - 10401 | 2026, february 17 | improved code of bus stops, roads and bridges ("DRY"), and added left-moved bus stops
 1.04.02 - 10402 | 2026, february 18 | improved code of bus stops and slopes ("DRY"), added 8 mesh shapes, and added slope bus stops
+1.04.03 - 10403 | 2026, february 18 | changed license to MIT (code and OBJs) & CC BY 4.0 (textures)
 Published as "Code & Bus stops update"
