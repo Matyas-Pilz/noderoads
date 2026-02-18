@@ -15,3 +15,7 @@ changed file LICENSE to CC-BY legaltext (thanks to Dragonop)
 1.03.03 - 10303 | 2024, november 04 | bugfix corners of double bridges
 1.03.04 - 10304 | 2024, november 05 | added prefix to textures names (thanks to Dragonop)
 Published as "Bridge update"
+
+1.04.01 - 10401 | 2026, february 17 | improved code of bus stops, roads and bridges ("DRY"), and added left-moved bus stops
+1.04.02 - 10402 | 2026, february 18 | improved code of bus stops and slopes ("DRY"), added 8 mesh shapes, and added slope bus stops
+Published as "Code & Bus stops update"

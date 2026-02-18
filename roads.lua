@@ -1,83 +1,49 @@
 --==========
 --ROADS
 --==========
-
-local function register_roads_node(name)
-    local nodename = "noderoads:" .. name   -- Název nodu
-    local top_texture = "noderoads_" .. name .. ".png"       -- Boční textura bloku
-    local description = "Road node: " .. name -- Popis bloku
-
-    minetest.register_node(nodename, {
+local function register_roads(name, nodename, top_texture, description, nbx, cbx)
+core.register_node(nodename, {
         description = description,
         tiles = {top_texture, "noderoads_brick1.png", "noderoads_brick1.png", "noderoads_brick1.png", "noderoads_brick1.png", "noderoads_brick1.png"},
-        groups = {cracky = 3, oddly_breakable_by_hand = 2},
+        groups = {cracky = 3, oddly_breakable_by_hand = 2, not_blocking_trains = 1},
         drawtype = "nodebox",
         paramtype = "light",
-        paramtype2 = "facedir",
-        node_box = {
-            type = "fixed",
-            fixed = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5},
-        },
-        collision_box = {
-            type = "fixed",
-            fixed = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5},
-        },
+        paramtype2 = "4dir",
+        node_box = {type = "fixed", fixed = nbx},
+        collision_box = {type = "fixed", fixed = cbx},
         sounds = default.node_sound_wood_defaults(),
         is_ground_content = false,
-        on_rotate = screwdriver.rotate_simple
+        on_rotate = screwdriver.rotate_simple,
+		paramtype = "light",
+		sunlight_propagates = true
     })
+end
+
+local function register_roads_node(name)
+    local nodename = "noderoads:" .. name   -- Node name
+    local top_texture = "noderoads_" .. name .. ".png"       -- Top texture
+    local description = "Road node: " .. name -- Node desc
+	local nbx = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5}
+	local cbx = nbx
+	register_roads(name, nodename, top_texture, description, nbx)
 end
 
 local function register_roads_slab(name)
-    local nodename = "noderoads:slab_" .. name   -- Název nodu
-    local top_texture = "noderoads_" .. name .. ".png"       -- Boční textura bloku
-    local description = "Road slab: " .. name -- Popis bloku
-
-    minetest.register_node(nodename, {
-        description = description,
-        tiles = {top_texture, "noderoads_brick1.png", "noderoads_brick1.png", "noderoads_brick1.png", "noderoads_brick1.png", "noderoads_brick1.png"},
-        groups = {cracky = 3, oddly_breakable_by_hand = 2},
-        drawtype = "nodebox",
-        paramtype = "light",
-        paramtype2 = "facedir",
-        node_box = {
-            type = "fixed",
-            fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5},
-        },
-        collision_box = {
-            type = "fixed",
-            fixed = {-0.5, -0.5, -0.5, 0.5, 0, 0.5},
-        },
-        sounds = default.node_sound_wood_defaults(),
-        is_ground_content = false,
-        on_rotate = screwdriver.rotate_simple
-    })
+    local nodename = "noderoads:slab_" .. name   -- Node name
+    local top_texture = "noderoads_" .. name .. ".png"       -- Top texture
+    local description = "Road slab: " .. name -- Node desc
+	local nbx = {-0.5, -0.5, -0.5, 0.5, 0, 0.5}
+	local cbx = nbx
+	register_roads(name, nodename, top_texture, description, nbx)
 end
 
 local function register_roads_flat(name)
-    local nodename = "noderoads:flat_" .. name   -- Název nodu
-    local top_texture = "noderoads_" .. name .. ".png"       -- Boční textura bloku
-    local description = "Road flat: " .. name -- Popis bloku
-
-    minetest.register_node(nodename, {
-        description = description,
-        tiles = {top_texture, "noderoads_brick1.png", "noderoads_brick1.png", "noderoads_brick1.png", "noderoads_brick1.png", "noderoads_brick1.png"},
-        groups = {cracky = 3, oddly_breakable_by_hand = 2},
-        drawtype = "nodebox",
-        paramtype = "light",
-        paramtype2 = "facedir",
-        node_box = {
-            type = "fixed",
-            fixed = {-0.5, -0.5, -0.5, 0.5, -0.49, 0.5},
-        },
-        collision_box = {
-            type = "fixed",
-            fixed = {-0.5, -0.5, -0.5, 0.5, -0.49, 0.5},
-        },
-        sounds = default.node_sound_wood_defaults(),
-        is_ground_content = false,
-        on_rotate = screwdriver.rotate_simple
-    })
+    local nodename = "noderoads:flat_" .. name   -- Node name
+    local top_texture = "noderoads_" .. name .. ".png"       -- Top texture
+    local description = "Road flat: " .. name -- Node desc
+	local nbx = {-0.5, -0.5, -0.5, 0.5, -0.49, 0.5}
+	local cbx = nbx
+	register_roads(name, nodename, top_texture, description, nbx)
 end
 
 --==========
@@ -85,82 +51,38 @@ end
 --==========
 
 local function register_roads_bridge(name)
-    local nodename = "noderoads:bridge_" .. name   -- Název nodu
+    local nodename = "noderoads:bridge_" .. name   -- Node name
     local top_texture = "noderoads_" .. name .. ".png"       -- Horní textura bloku
-    local description = "Road bridge: " .. name -- Popis bloku
-
-    minetest.register_node(nodename, {
-        description = description,
-        tiles = {top_texture, "noderoads_brick1.png", "noderoads_brick1.png", "noderoads_brick1.png", "noderoads_brick1.png", "noderoads_brick1.png"},
-        groups = {cracky = 3, oddly_breakable_by_hand = 2},
-        drawtype = "nodebox",
-        paramtype = "light",
-        paramtype2 = "facedir",
-        node_box = {
-            type = "fixed",
-            fixed = {
+    local description = "Road bridge: " .. name -- Node desc
+	local nbx = {
             {-0.5, 0.4, -0.5, 0.5, 0.5, 0.5},
             {-0.5, -0.5, -0.5, -0.4, 0.4, -0.4},
             {-0.5, -0.5, 0.4, -0.4, 0.4, 0.5},
             {0.4, -0.5, -0.5, 0.5, 0.4, -0.4},
-            {0.4, -0.5, 0.4, 0.5, 0.4, 0.5}
-        },},
-        collision_box = {
-            type = "fixed",
-            fixed = {-0.5, 0.4, -0.5, 0.5, 0.5, 0.5},
-        },
-        sounds = default.node_sound_wood_defaults(),
-        is_ground_content = false,
-        on_rotate = screwdriver.rotate_simple
-    })
+            {0.4, -0.5, 0.4, 0.5, 0.4, 0.5}}
+	local cbx = {-0.5, 0.4, -0.5, 0.5, 0.5, 0.5}
+	register_roads(name, nodename, top_texture, description, nbx)
 end
 
 local function register_roads_bridge_low(name)
-    local nodename = "noderoads:bridgel_" .. name   -- Název nodu
-    local top_texture = "noderoads_" .. name .. ".png"       -- Boční textura bloku
-    local description = "Road low bridge: " .. name -- Popis bloku
-
-    minetest.register_node(nodename, {
-        description = description,
-        tiles = {top_texture, "noderoads_brick1.png", "noderoads_brick1.png", "noderoads_brick1.png", "noderoads_brick1.png", "noderoads_brick1.png"},
-        groups = {cracky = 3, oddly_breakable_by_hand = 2},
-        drawtype = "nodebox",
-        paramtype = "light",
-        paramtype2 = "facedir",
-        node_box = {
-            type = "fixed",
-            fixed = {
+    local nodename = "noderoads:bridgel_" .. name   -- Node name
+    local top_texture = "noderoads_" .. name .. ".png"       -- Top texture
+    local description = "Road low bridge: " .. name -- Node desc
+	local nbx = {
             {-0.5, -0.1, -0.5, 0.5, 0, 0.5},
             {-0.5, -0.5, -0.5, -0.4, -0.1, -0.4},
             {-0.5, -0.5, 0.4, -0.4, -0.1, 0.5},
             {0.4, -0.5, -0.5, 0.5, -0.1, -0.4},
-            {0.4, -0.5, 0.4, 0.5, -0.1, 0.5}
-        },},
-        collision_box = {
-            type = "fixed",
-            fixed = {-0.5, -0.1, -0.5, 0.5, 0, 0.5},
-        },
-        sounds = default.node_sound_wood_defaults(),
-        is_ground_content = false,
-        on_rotate = screwdriver.rotate_simple
-    })
+            {0.4, -0.5, 0.4, 0.5, -0.1, 0.5}}
+	local cbx = {-0.5, -0.1, -0.5, 0.5, 0, 0.5},
+	register_roads(name, nodename, top_texture, description, nbx)
 end
 
 local function register_roads_bridge_double(name)
-    local nodename = "noderoads:bridged_" .. name   -- Název nodu
+    local nodename = "noderoads:bridged_" .. name   -- Node name
     local top_texture = "noderoads_" .. name .. ".png"       -- horní textura bloku
-    local description = "Road double bridge: " .. name -- Popis bloku
-
-    minetest.register_node(nodename, {
-        description = description,
-        tiles = {top_texture, "noderoads_brick1.png", "noderoads_brick1.png", "noderoads_brick1.png", "noderoads_brick1.png", "noderoads_brick1.png"},
-        groups = {cracky = 3, oddly_breakable_by_hand = 2},
-        drawtype = "nodebox",
-        paramtype = "light",
-        paramtype2 = "facedir",
-        node_box = {
-            type = "fixed",
-            fixed = {
+    local description = "Road double bridge: " .. name -- Node desc
+	local nbx = {
             {-0.5, 0.4, -0.5, 0.5, 0.5, 0.5},
             {-0.5, -0.1, -0.4, -0.4, 0.0, 0.4},
             {-0.4, -0.1, -0.5, 0.4, 0.0, 0.5},
@@ -168,28 +90,21 @@ local function register_roads_bridge_double(name)
             {-0.5, -0.5, -0.5, -0.4, 0.4, -0.4},
             {-0.5, -0.5, 0.4, -0.4, 0.4, 0.5},
             {0.4, -0.5, -0.5, 0.5, 0.4, -0.4},
-            {0.4, -0.5, 0.4, 0.5, 0.4, 0.5}
-        },},
-        collision_box = {
-            type = "fixed",
-            fixed = {
+            {0.4, -0.5, 0.4, 0.5, 0.4, 0.5}}
+	local cbx = {
             {-0.5, 0.4, -0.5, 0.5, 0.5, 0.5},
             {-0.5, -0.1, -0.4, -0.4, 0.0, 0.4},
             {-0.4, -0.1, -0.5, 0.4, 0.0, 0.5},
-            {0.4, -0.1, -0.5, 0.5, 0.0, 0.4},
-        },},
-        sounds = default.node_sound_wood_defaults(),
-        is_ground_content = false,
-        on_rotate = screwdriver.rotate_simple
-    })
+            {0.4, -0.1, -0.5, 0.5, 0.0, 0.4},}
+	register_roads(name, nodename, top_texture, description, nbx)
 end
 
 --==========
 --Names
 --==========
 
--- Registrace bloků pomocí funkce
--- Seznam názvů bloků a textur
+-- Registering nodes with function
+-- List of node names
 local roads_names = {
 "abtoa",
 "btoab",
