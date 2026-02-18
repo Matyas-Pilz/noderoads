@@ -1,5 +1,8 @@
 Node roads is a mod by MatyasP that adds one-node roads.
-Now, mod has 8 slope nodes, 255 (85 per top texture, types node, slab, flat) road & crossroads nodes, 1 sidewalk node (too 1 flat and 1 slab), 6 bridge nodes & 6 bridge slabs, 2 bridge pillar nodes.
+  Now, mod has 8 slope nodes, 255 (85 per top texture, types node, slab, flat) road & crossroads nodes, 1 sidewalk node (too 1 flat and 1 slab), 6 bridge nodes & 6 bridge slabs, 2 bridge pillar nodes.
+
+Bus stop are repaintable using repainter (tool: repainter_b), world_edit or similar tools.
+  repainter: https://content.luanti.org/packages/MatyasP/repainter/
 
 Crafting for survival is planned for future, but now isn't any crafting.
 
