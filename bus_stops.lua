@@ -7,7 +7,7 @@ local nbx_03 = {-0.5, -0.5, -0.5, 0.5, -0.4, 0.5}
 
 local bpx = "noderoads_bpx.png"
 local function register_bus_stop(name, nameadd, model, nbx, drawtype)
-core.register_node("noderoads:bus_stop"..name.."_"..nameadd, {
+core.register_node("noderoads:bus_stop"..name..nameadd, {
     description = "Bus stop "..name.." "..nameadd,
     tiles = {
         "noderoads_bus_stop"..name..".png",
@@ -43,10 +43,10 @@ local bus_stops = {
 
 local bus_stop_shapes = {
 {"","",nbx_01,"nodebox"},
-{"lu","slopesignlowu",nbx_02,"mesh"},
-{"hu","slopesignhighu",nbx_03,"mesh"},
-{"ld","slopesignlowd",nbx_02,"mesh"},
-{"hd","slopesignhighd",nbx_03,"mesh"},
+{"_lu","slopesignlowu",nbx_02,"mesh"},
+{"_hu","slopesignhighu",nbx_03,"mesh"},
+{"_ld","slopesignlowd",nbx_02,"mesh"},
+{"_hd","slopesignhighd",nbx_03,"mesh"},
 }
 
 for _, col2 in ipairs(bus_stop_shapes) do
